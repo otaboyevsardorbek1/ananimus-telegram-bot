@@ -2,7 +2,6 @@ import asyncio
 from typing import Optional
 
 import aiohttp
-from aiohttp_socks import ProxyConnector
 
 
 class AnonyMouse:
@@ -21,8 +20,7 @@ class AnonyMouse:
         """
         :return:
         """
-        connector = ProxyConnector.from_url('socks5://67.213.212.12:43626')
-        self.session = aiohttp.ClientSession(connector=connector)
+        self.session = aiohttp.ClientSession()
         return self.session
 
     async def close(self) -> None:
