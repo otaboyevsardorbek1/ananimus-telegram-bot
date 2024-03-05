@@ -1,27 +1,19 @@
-version: '3.3'
+version: '3.8'
 
 services:
   bot:
     build:
       context: docker
-      dockerfile:
-        docker/Dockerfile
-    restart:
-       on-failure
+      dockerfile: docker/Dockerfile
+    restart: on-failure
     volumes:
-        - ".:/usr/src/app"
+      - "./:/usr/src/app"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
   redis:
     container_name: redis
-    image:
-      redis:alpine
+    image: redis:alpine
     ports:
-      - "6379:6379"
-    command:
-      - 'redis-server'
-      - '--loglevel ${REDIS_LOGLEVEL:-warning}'
-      - '--databases 2'
-      - '--maxmemory ${REDIS_MAXMEM:-50mb}'
-      - '--maxmemory-policy ${REDIS_POLICY:-noeviction}'
-    volumes:
-      - ../data/redis:/data
-    restart: always
+      - "637
