@@ -1,1 +1,11 @@
-venv
+# Create a new virtual environment
+python3 -m venv my_env
+
+# On Unix-based systems, activate the virtual environment
+source my_env/bin/activate
+
+# You are now in the virtual environment (my_env)
+# Install packages and work on your project here
+
+# When you're done, deactivate the virtual environment
+deactivate
